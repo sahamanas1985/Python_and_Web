@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">  
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<canvas id="canvas" width="400" height="300"></canvas>
+    <div class="toolbox"> 
+      <button id="clear">X</button>
+      <button id="save">✔</button>
+    </div>
+
+<canvas id="canvasParent" width="400" height="300" style="border: 2px solid red"></canvas>
+
+</body>
+
+<script>
+
+const canvas = document.getElementById("canvas");
+const canvasParent = document.getElementById("canvasParent");
+const clearElement = document.getElementById("clear");
+const saveElement = document.getElementById("save");
+const ctx = canvas.getContext("2d");
+
+let size = 1;
+let color = "#001C70";
+let x;
+let y;
+let isPressed = false;
+
+const drawCircle = (x, y) => {
+  ctx.beginPath();
+  ctx.arc(x, y, size, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+};
+
+const drawLine = (x1, y1, x2, y2) => {
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = size * 2;
+  ctx.stroke();
+};
+
+canvas.addEventListener("mousedown", (e) => {
+  isPressed = true;
+  x = e.offsetX;
+  y = e.offsetY;
+});
+
+canvas.addEventListener("mouseup", (e) => {
+  isPressed = false;
+  x = undefined;
+  y = undefined;
+});
+
+canvas.addEventListener("mousemove", (e) => {
+  if (isPressed) {
+    x2 = e.offsetX;
+    y2 = e.offsetY;
+    drawCircle(x2, y2);
+    drawLine(x, y, x2, y2);
+    x = x2;
+    y = y2;
+  }
+});
+
+clearElement.addEventListener("click", () =>
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+);
+
+saveElement.addEventListener("click", () =>
+  saveImage()
+);
+
+function saveImage()
+{
+    var pngUrl = canvas.toDataURL(); // PNG is the default
+    alert(pngUrl);
+    
+
+    var ctx = canvasParent.getContext('2d');
+    var img = new Image;
+    img.onload = function(){
+    ctx.drawImage(img,0,0); // Or at whatever offset you like
+    };
+    img.src = pngUrl;
+
+}
+
+</script>
+
+
+</html>

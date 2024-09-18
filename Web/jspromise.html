@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <script>
+
+        // this will execute in incorrect order.
+
+        function invokeFunction() {
+            console.log("Loop Begins");
+            functionWithLoop();
+            console.log("Loop Ends");
+        }
+
+        function functionWithLoop() {
+            for (let i = 1; i <= 3; i++) {                             
+                LongRunningFunction(i);
+            }
+        }
+
+
+        // this will execute in correct order.
+
+        function invokeFunctionCorrectly() {
+            console.log("Function Begins");
+            functionWithLoopCorrect().then(function (result) {
+                console.log("Function Ends");
+            });
+        }       
+
+
+        async function functionWithLoopCorrect() {
+            for (let loopcount = 1; loopcount <= 3; loopcount++) {
+                await LongRunningFunction(loopcount);
+                console.log("After Long running function : index " + loopcount);               
+            }
+        }
+
+        // This is the long running function.
+        
+        function LongRunningFunction(text) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(() => {
+                    console.log("In Long Running Function Loop " + text);
+                    resolve();
+                }, 1200);
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+    <br /><br />
+    <span style="margin:20px; color: indianred">Open console and click these buttons to observe the behaviour.</span>
+    <br />
+    <button type="button" onclick="invokeFunction()" style="padding:10px; margin:20px; width:250px">Call Function
+        (Incorrect Order)</button>
+    <br />
+    <button type="button" onclick="invokeFunctionCorrectly()" style="padding:10px; margin:20px; width:250px">Call
+        Function (Correct Order)</button>
+</body>
+
+</html>

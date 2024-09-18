@@ -1,0 +1,17 @@
+{
+    "Name": "",
+    "Age": "",
+    "City": "",
+    "WorkHistory": [
+        {
+            "CompanyName": "",
+            "StartYear": "",
+            "EndYear": ""
+        }
+    ],
+    "PrimarySkillSet":"",
+    "CurrentResponsibilities":[
+        "",
+        ""
+    ]
+}

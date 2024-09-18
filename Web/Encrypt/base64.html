@@ -1,0 +1,71 @@
+<html>
+
+<head>
+
+    <script>
+
+        function Encrypt() {
+            var plaintext = document.getElementById("originalText").value;
+            var encodedString = btoa(unescape(encodeURIComponent(plaintext)));
+            document.getElementById("encryptedText").value = encodedString;
+        }
+
+        function Decrypt() {
+            var encryptedtext = document.getElementById("encryptedText").value;
+            var plaintext = decodeURIComponent(escape(window.atob(encryptedtext)));
+            document.getElementById("decryptedText").value = plaintext;
+        }
+
+        function SplitString()
+        {
+            var plaintext = document.getElementById("decryptedText").value;
+
+            var Verifycode = extractSubstring(plaintext, null, "&usrname=");
+            var UserName = extractSubstring(plaintext, "&usrname=", "&usrmail=");
+            var UserEmail = extractSubstring(plaintext, "&usrmail=", null);
+
+            var alertText = "String Splitted. VerifyCode = '" + Verifycode + "', User Name = '" + UserName + "', Email = '" + UserEmail + "'";
+            alert(alertText);
+        }
+
+        function extractSubstring(fullString, startWord, endWord) {
+            let startIndex = 0;
+            let endIndex = fullString.length;
+
+            if (startWord) {
+                const startWordIndex = fullString.indexOf(startWord);
+                if (startWordIndex !== -1) {
+                    startIndex = startWordIndex + startWord.length;
+                }
+            }
+
+            if (endWord) {
+                const endWordIndex = fullString.indexOf(endWord, startIndex);
+                if (endWordIndex !== -1) {
+                    endIndex = endWordIndex;
+                }
+            }
+
+            return fullString.substring(startIndex, endIndex);
+        }
+        
+
+    </script>
+
+</head>
+
+<body>
+    <h3>Enter your text</h3>
+    <textarea id="originalText" rows="4" cols="200" style="width:400px;"></textarea><br /><br />
+    <button type="button" onclick="Encrypt()">Encrypt</button>
+    <br /><br />
+    <h3>Encrypted Text</h3>
+    <textarea id="encryptedText" rows="4" cols="200" style="width:400px;"></textarea><br /><br />
+    <button type="button" onclick="Decrypt()">Decrypt</button>
+    <br /><br />
+    <h3>Decrypted Text</h3>
+    <textarea id="decryptedText" rows="4" cols="200" style="width:400px;"></textarea><br /><br />
+    <button type="button" onclick="SplitString()">Split String</button>
+</body>
+
+</html>

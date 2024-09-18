@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" crossorigin="anonymous">
+    <script src="./toastmsg.js"></script>
+</head> 
+
+<body style="padding: 25px"> 
+
+    <button class="btn btn-info" onclick="ShowInfoToast()">Info Toast</button>
+    <button class="btn btn-success" onclick="ShowSuccessToast()">Success Toast</button>
+    <button class="btn btn-danger" onclick="ShowErrorToast()">Error Toast</button>
+    <button class="btn btn-warning" onclick="ShowWarningToast()">Warning Toast</button>
+    <button class="btn btn-outline-dark" onclick="ShowWhiteToast()">White Toast</button>
+	
+	<script> 
+		function ShowInfoToast()
+        {   
+            DisplayToastMessage("This is a Info message!", "info"); // Will show blue message           
+        }
+        function ShowSuccessToast()
+        {   
+            DisplayToastMessage("This is a Success message!", "success"); // will show green message
+        }
+        function ShowErrorToast()
+        {   
+            DisplayToastMessage("This is an Error message!", "error"); // will show red message
+        } 
+        function ShowWarningToast()
+        {   
+            DisplayToastMessage("This is a Warning message!", "warning"); // will show Yellow message
+        } 
+        function ShowWhiteToast()
+        {   
+            DisplayToastMessage("This is a Normal message!"); // No 2nd parameter - will show white message
+        }      
+	</script> 
+</body> 
+
+</html>

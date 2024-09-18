@@ -1,0 +1,160 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+    <style>
+        .mytooltip {
+            position: relative;
+            display: inline-block;            
+        }
+
+        .mytooltip .mytooltiptext {
+            visibility: hidden;
+            min-width: 200px;
+            max-width: 500px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -60px;
+        }
+
+        .mytooltip .mytooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .mytooltip:hover .mytooltiptext {
+            visibility: visible;
+        }
+
+
+       
+        .mytooltip .mytooltiptextleft 
+        {
+            visibility: hidden;
+            min-width: 200px;
+            max-width: 500px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            right: 110%;
+        }
+
+        .mytooltip .mytooltiptextleft::after {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            left: 100%; 
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent transparent black;
+        }
+
+        .mytooltip:hover .mytooltiptextleft 
+        {
+            visibility: visible;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+    <br />
+    <span style="color: indianred; margin-left: 50px">Hover mouse over the Names to show tooltip</span>
+    <br /><br />
+
+
+    <table class="table" style="width:700px; margin-left: 250px">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>
+                    <div class="mytooltip">Nobita
+                        <span class="mytooltiptext">Doraemon, koi gadget dedo.</span>
+                    </div>
+                </td>
+                <td>Male</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>
+                    <div class="mytooltip">Shizuka
+                        <span class="mytooltiptext">Tooltip text for Shizuka</span>
+                    </div>
+                </td>
+                <td>Female</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>
+                    <div class="mytooltip">Gian
+                        <span class="mytooltiptextleft">Main hoon Gian, sabse takatwar.</span>
+                    </div>
+                </td>
+                <td>Male</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>
+                    <div class="mytooltip">Suneo
+                        <span class="mytooltiptextleft">Tooltip text for Suneo</span>
+                    </div>
+                </td>
+                <td>Male</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>
+                    <div class="mytooltip">Doraemon
+                        <span class="mytooltiptextleft">Jeene ka sahi dhang, sikhe hum iske sang, 
+                            saare jamane inhe pahechane ye hain doraemon.
+                            Chahe bacche ya bade, sabka ye dulara hain,
+                            hain bada ye pyara doraemon.
+                        </span>
+                    </div>
+                </td>
+                <td>Robot</td>
+                <td>90</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

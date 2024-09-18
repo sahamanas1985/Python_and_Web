@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/jstree-bootstrap-theme@1.0.1/dist/themes/proton/style.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+
+    <style>
+        
+        
+
+        .jstree-proton {
+            font-family: 'Open Sans', sans-serif !important;
+        }
+
+        li.jstree-open > a .jstree-icon 
+        {
+            background:url("folderopen.svg") 0px 0px no-repeat !important; 
+            padding-right:8px !important;
+            filter: invert(61%) sepia(40%) saturate(5325%) hue-rotate(184deg) brightness(98%) contrast(92%);
+        }
+        li.jstree-closed > a .jstree-icon 
+        {
+            background:url("folderclose.svg") 0px 0px no-repeat !important; 
+            padding-right:8px !important;
+            filter: invert(61%) sepia(40%) saturate(5325%) hue-rotate(184deg) brightness(98%) contrast(92%);
+        }
+        li.jstree-leaf > a .jstree-icon 
+        {
+            background:url("file.svg") 0px 0px no-repeat !important; 
+            padding-right:8px !important;
+            filter: invert(61%) sepia(40%) saturate(5325%) hue-rotate(184deg) brightness(98%) contrast(92%);
+        }
+        
+    </style>
+
+    <script>
+
+        var jsondata = [
+            {
+                'text': 'Asia',
+                'state': {
+                    'opened': false,
+                    'selected': false
+                },
+                'children': [
+                    {
+                        'text': 'India',
+                        'children': [
+                            {
+                                'text': 'Delhi'
+                            },
+                            {
+                                'text': 'Mumbai'
+                            }
+                        ]
+                    },
+                    {
+                        'text': 'China'
+                    }
+                ]
+            },
+            {
+                'text': 'Europe',
+                'state': {
+                    'opened': false,
+                    'selected': false
+                },
+                'children': [
+                    {
+                        'text': 'France'
+                    },
+                    {
+                        'text': 'Germany'
+                    }
+                ]
+            }
+        ];
+
+        $(document).ready(function () {
+
+            var jstreeCountry = $('#using_json').jstree({
+                "core": { 
+                    "data": jsondata, 
+                    "themes": {
+                        "name": "proton",
+                        "dots": false,
+                        "icons": false
+                    }                   
+                },
+                "plugins" : [ "themes", "checkbox"]
+            });
+
+            
+        });
+
+
+    </script>
+
+</head>
+
+<body>
+    <div id="using_json"></div>
+</body>
+
+</html>

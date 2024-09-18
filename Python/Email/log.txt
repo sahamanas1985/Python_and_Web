@@ -1,0 +1,15 @@
+ERROR:root:[Errno 11001] getaddrinfo failed
+Traceback (most recent call last):
+  File "c:\Manas\Python\Email\mailtest.py", line 35, in <module>
+    with smtplib.SMTP(smtp_server, port) as server:
+  File "C:\Program Files\Python310\lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+  File "C:\Program Files\Python310\lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "C:\Program Files\Python310\lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "C:\Program Files\Python310\lib\socket.py", line 824, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "C:\Program Files\Python310\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed

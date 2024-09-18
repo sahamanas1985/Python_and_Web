@@ -1,0 +1,99 @@
+<html>
+
+<head>
+
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <style>
+        
+        html, body 
+        {
+            margin: 0; 
+            height: 100%; 
+            overflow: hidden
+        }
+
+        .bannerholder
+        {            
+            position: absolute;
+            left: -300px; 
+            top: -50px;
+            height: 500px;
+        }
+        
+        .bigsquare {
+            position: absolute;
+            height: 700px;
+            width: 700px;
+            border-radius: 70px;
+            transform: rotateY(0deg) rotate(45deg);
+            background: linear-gradient(90deg, rgba(21, 120, 255, 1) 33%, rgba(39, 172, 210, 1) 64%);
+        }
+
+        .smallsquare {
+            position: absolute;
+            left: 30px;
+            height: 700px;
+            width: 700px;
+            border-radius: 70px;
+            transform: rotateY(0deg) rotate(55deg);
+            background: linear-gradient(90deg, rgb(143, 212, 230) 33%, rgba(176, 228, 243)64%);
+        }
+
+        .whiteline-top
+        {
+            position: absolute;
+            top: 305px;
+            left: 495px;
+            width: 250px;
+            height: 0px;
+            border: 1px solid white;  
+            background-color: white;          
+        }
+
+        .whiteline-bottom
+        {
+            position: absolute;
+            top: 330px;
+            left: 530px;
+            width: 175px;
+            height: 0px;
+            border: 1px solid white;  
+            background-color: white;
+        }
+
+        .maintext {
+            position: absolute;
+            font-family: 'Open Sans';
+            font-weight: bold;
+            color: white;
+            top: 400px;
+            left: 496px;
+            font-size: 24px;
+            width:250px;
+        }
+
+        .subtext {
+            position: absolute;
+            font-family: 'Open Sans';
+            color: white;
+            top: 450px;
+            left: 496px;
+            font-size: 14px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bannerholder">
+        <div class="smallsquare"></div>
+        <div class="bigsquare"></div>
+        <div class="whiteline-top"></div>
+        <div class="whiteline-bottom"></div>
+        <span class="maintext">Data Management</span>
+        <span class="subtext">One-stop end-to-end clinical data management solution.</span>
+    </div>
+</body>
+
+</html>

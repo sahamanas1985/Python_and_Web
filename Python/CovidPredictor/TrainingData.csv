@@ -1,0 +1,31 @@
+Patient_ID,Body_Temp,Cough_Severity,Result,Result_description
+1,98.1,0,0,Healthy
+2,98.3,0,0,Healthy
+3,98.7,1,1,Cough
+4,98.5,3,1,Cough
+5,99.1,4,1,Cough
+6,99.3,3,1,Cough
+7,99.4,2,3,Flu
+8,99.7,1,1,Cough
+9,99.8,0,0,Healthy
+10,100.1,3,1,Cough
+11,100.2,4,1,Cough
+12,100.6,1,1,Cough
+13,100.6,1,1,Cough
+14,101.3,0,2,Fever
+15,101.2,3,3,Flu
+16,101.5,4,1,Cough
+17,102.2,4,4,Covid 19
+18,102.2,3,3,Flu
+19,102.5,2,3,Flu
+20,102.5,2,3,Flu
+21,102.6,1,3,Flu
+22,102.7,0,2,Fever
+23,103.1,0,2,Fever
+24,103.1,3,4,Covid 19
+25,103.3,3,4,Covid 19
+26,103.4,4,4,Covid 19
+27,104.1,4,4,Covid 19
+28,104.2,2,4,Covid 19
+29,104.3,1,3,Flu
+30,104.4,3,4,Covid 19

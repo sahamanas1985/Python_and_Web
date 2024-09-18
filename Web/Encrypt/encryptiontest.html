@@ -1,0 +1,38 @@
+<html>
+    <head>        
+        <script src="./aes.js"></script>
+        <script>
+
+            var key="abcd123456xyz";
+
+            function Encrypt()
+            {                
+                var plaintext = document.getElementById("originalText").value;                
+                var encryptedAES = CryptoJS.AES.encrypt(plaintext, key);                
+                document.getElementById("encryptedText").value = encryptedAES;
+            }
+
+            function Decrypt()
+            {
+                var encryptedtext = document.getElementById("encryptedText").value;
+                var decryptedBytes = CryptoJS.AES.decrypt(encryptedtext, key);
+                var plaintext = decryptedBytes.toString(CryptoJS.enc.Utf8);
+                document.getElementById("decryptedText").value = plaintext;
+            }
+
+        </script>
+
+    </head>
+    <body>
+        <h3>Enter your text</h3>
+        <textarea id="originalText" rows="4" cols="200" style="width:400px;"></textarea><br/><br/>
+        <button type="button" onclick="Encrypt()">Encrypt</button>
+        <br/><br/>
+        <h3>Encrypted Text</h3>
+        <textarea id="encryptedText" rows="4" cols="200" style="width:400px;"></textarea><br/><br/>
+        <button type="button" onclick="Decrypt()">Decrypt</button>
+        <br/><br/>
+        <h3>Decrypted Text</h3>
+        <textarea id="decryptedText" rows="4" cols="200" style="width:400px;"></textarea><br/><br/>
+    </body>
+</html>

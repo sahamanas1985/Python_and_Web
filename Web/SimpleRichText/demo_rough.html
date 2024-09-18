@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+
+<head>	
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<script src="richedit.js"></script>
+
+	<style>
+		.btn
+		{
+			border: 1px solid white;
+			border-radius: 4px;
+			background-color: white;
+		}
+		.btn:hover
+		{
+			background-color: lightblue;
+		}
+	</style>
+
+</head>
+
+<body>	
+
+	<button class="html">Display HTML</button>
+	<button class="raw">Get Raw HTML</button>
+	<button onclick="SetHtml()">Set HTML</button>
+	<pre class="rawHTML" id="myeditor" style="border:1px solid blue">
+
+	</pre>
+
+	<h1>Rich Text Editor demo</h1>
+	<button class="btn bold" title="Bold"><i class="fa fa-bold"></i></button>
+	<button class="btn italic" title="Italic"><i class="fa fa-italic"></i></button>
+	<button class="btn underline" title="Underline"><i class="fa fa-underline"></i></button>
+	<button class="btn sub" title="Subscript"><i class="fa fa-subscript"></i></button>
+	<button class="btn super" title="Superscript"><i class="fa fa-superscript"></i></button>
+	<button class="btn strike" title="Strikethrough"><i class="fa fa-strikethrough"></i></button>
+
+	<button class="btn orderedList" title="Ordered List"><i class="fa fa-list-ol"></i></button>
+	<button class="btn unOrderedList" title="Unordered List"><i class="fa fa-list-ul"></i></button>
+
+	<button class="btn right" title="Align Right"><i class="fa fa-align-right"></i></button>
+	<button class="btn left" title="Align Left"><i class="fa fa-align-left"></i></button>
+	<button class="btn center" title="Align center"><i class="fa fa-align-center"></i></button>
+	<button class="btn full" title="Justify"><i class="fa fa-align-justify"></i></button>	
+	<button class="btn rule" title="Horizontal Rule"><i class="fa fa-minus"></i></button>
+
+	<button class="btn indent" title="Left Indent"><i class="fa fa-indent"></i></button>
+	<button class="btn outdent" title="Right Indent"><i class="fa fa-outdent"></i></button>
+
+	<button class="btn remove" title="Remove Formatting"><i class="fa fa-eraser"></i></button>
+	
+	<button class="btn select" title="Select All"><i class="fa fa-check"></i></button>
+	
+	<button class="btn undo" title="Undo"><i class="fa fa-rotate-left"></i></button>
+	<button class="btn redo" title="Redo"><i class="fa fa-rotate-right"></i></button>
+
+	<select id="fonty">
+		<option disabled="true" selected="true">Font Name</option>
+		<option value="ebrima">Ebrima</option>
+		<option value="arial">Arial</option>
+		<option value="georgia">Georgia</option>
+	</select>
+
+	<select id="sizy">
+		<option disabled="true" selected="true">Font Size</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+	</select>
+
+
+	<select id="colory">
+		<option disabled="true" selected="true">Font Color</option>
+		<option value="black">Black</option>		
+		<option value="gray">Gray</option>		
+		<option value="maroon">Maroon</option>
+		<option value="red">Red</option>
+		<option value="purple">Purple</option>	
+		<option value="pink">Pink</option>
+		<option value="green">Green</option>
+		<option value="lime">Lime</option>
+		<option value="olive">Olive</option>
+		<option value="orange">Orange</option>	
+		<option value="yellow">Yellow</option>
+		<option value="navy">Navy</option>
+		<option value="blue">Blue</option>
+		<option value="teal">Teal</option>
+		<option value="aqua">Aqua</option>
+	</select>
+
+	
+	
+
+	<br>
+
+	<textarea id="wysiwyg" cols="30" rows="10" style="width: 500px;">
+		
+		
+	</textarea>
+
+	
+	<script>
+
+		function SetHtml()
+		{
+			//var HtmlString = "This is a sample Rich text.<div>It can support <b>Bold</b>, <i>Italic</i>, <u>Underline</u>, <strike>Strikethrough</strike>, <sub>Subscript</sub>, <sup>Superscript</sup>.</div><div>It can support lists</div><div><ol><li>one</li><li>two</li><li>three</li></ol></div><div><br></div>";
+			var HtmlString = `<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n  <head>\r\n    <meta\r\n      charset=\"UTF-8\" />\r\n    <title>DTA Template</title>\r\n    <meta\r\n      name=\"Generator\"\r\n      content=\"PowerTools for Open XML\" />\r\n    <style>span { white-space: pre-wrap; }\r\np.pt-Title1 {\r\n    margin-bottom: 0;\r\n    font-family: Calibri;\r\n    font-size: 36pt;\r\n    line-height: 108%;\r\n    margin-top: 0;\r\n    margin-left: 0;\r\n    margin-right: 0;\r\n}\r\nspan.pt-000000 {\r\n    color: #4E84C4;\r\n    font-size: 36pt;\r\n    font-style: normal;\r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\nspan.pt-DefaultParagraphFont {\r\n    color: #4E84C4;\r\n    font-family: Calibri;\r\n    font-size: 36pt;\r\n    font-style: normal;\r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\nspan.pt-DefaultParagraphFont-000001 {\r\n    color: #4E84C4;\r\n    font-size: 36pt;\r\n    font-style: normal;\r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\np.pt-Subtitle1 {\r\n    margin-top: 5pt;\r\n    margin-bottom: 0;\r\n    font-family: Calibri;\r\n    font-size: 14pt;\r\n    line-height: 108%;\r\n    margin-left: 0;\r\n    margin-right: 0;\r\n}\r\nspan.pt-DefaultParagraphFont-000002 {\r\n    color: #000000;\r\n    font-family: Calibri;\r\n    font-size: 14pt;\r\n    font-style: normal;\r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\np.pt-Normal {\r\n    line-height: 115.0%;\r\n    margin-bottom: 75pt;\r\n    font-family: Calibri;\r\n    font-size: 12pt;\r\n    margin-top: 0;\r\n    margin-left: 0;\r\n    margin-right: 0;\r\n}\r\nspan.pt-000003 {\r\n    color: #FFFFFF;\r\n    font-size: 12pt;\r\n    font-style: normal;\r\n    font-weight: normal;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\np.pt-Normal-000004 {\r\n    line-height: 115.0%;\r\n    margin-bottom: 10pt;\r\n    font-family: Calibri;\r\n    font-size: 12pt;\r\n    margin-top: 0;\r\n    margin-left: 0;\r\n    margin-right: 0;\r\n}\r\nspan.pt-000005 {\r\n    font-size: 12pt;\r\n    font-style: normal;\r\n    font-weight: normal;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\np.pt-Normal-000006 {\r\n    line-height: 115.0%;\r\n    margin-bottom: 10pt;\r\n    font-family: Calibri;\r\n    font-size: 14pt;\r\n    margin-top: 0;\r\n    margin-left: 0;\r\n    margin-right: 0;\r\n}\r\nspan.pt-000007 {\r\n    color: #E8E8E8;\r\n    font-size: 14pt;\r\n    font-style: normal;\r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\np.pt-NoSpacing {\r\n    margin-top: 5pt;\r\n    margin-bottom: 0;\r\n    font-family: Calibri;\r\n    font-size: 10pt;\r\n    line-height: 108%;\r\n    margin-left: 0;\r\n    margin-right: 0;\r\n}\r\nspan.pt-DefaultParagraphFont-000008 {\r\n    font-family: Calibri;\r\n    font-size: 10pt;\r\n    font-style: normal;\r\n    font-weight: normal;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\nh2.pt-Heading2 {\r\n    margin-top: 2pt;\r\n    line-height: 115.0%;\r\n    margin-bottom: 0;\r\n    font-family: Calibri;\r\n    font-size: 14pt;\r\n    margin-left: 0;\r\n    margin-right: 0;\r\n}\r\nspan.pt-DefaultParagraphFont-000009 {\r\n    color: #4E84C4;\r\n    font-family: Calibri;\r\n    font-size: 14pt;\r\n    font-style: normal;\r\n    font-weight: normal;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\nspan.pt-DefaultParagraphFont-000010 {\r\n    font-family: Calibri;\r\n    font-size: 12pt;\r\n    font-style: normal;\r\n    font-weight: normal;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\np.pt-Normal-000011 {\r\n    line-height: 115.0%;\r\n    margin-bottom: 10pt;\r\n    text-align: center;\r\n    font-family: Calibri;\r\n    font-size: 12pt;\r\n    margin-top: 0;\r\n    margin-left: 0;\r\n    margin-right: 0;\r\n}\r\n</style>\r\n  </head>\r\n  <body>\r\n    <div>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Title1\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000000\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Title1\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000000\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Title1\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000000\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Title1\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000000\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Title1\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-DefaultParagraphFont\">Add Document </span>\r\n        <span\r\n          class=\"pt-DefaultParagraphFont-000001\">\r\n          <br />&#x200e;</span>\r\n        <span\r\n          class=\"pt-DefaultParagraphFont\">Title Here</span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Subtitle1\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          class=\"pt-DefaultParagraphFont-000002\">Add Subtitle here</span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000003\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Subtitle1\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          class=\"pt-DefaultParagraphFont-000002\">April 23, 2024</span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000005\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000005\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000005\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000005\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000006\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000007\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000005\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000005\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000005\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000005\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000005\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-NoSpacing\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          class=\"pt-DefaultParagraphFont-000008\">Heading 1</span>\r\n      </p>\r\n      <h2\r\n        dir=\"ltr\"\r\n        class=\"pt-Heading2\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          class=\"pt-DefaultParagraphFont-000009\">Heading 2</span>\r\n      </h2>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          xml:space=\"preserve\"\r\n          class=\"pt-DefaultParagraphFont-000010\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur bibendum ante, eu sodales ante egestas in. Nam sit </span>\r\n        <span\r\n          class=\"pt-DefaultParagraphFont-000010\">amet pellentesque sapien. Praesent id luctus nunc. Sed sit amet nisi euismod, porttitor nulla et, accumsan diam</span>\r\n        <span\r\n          lang=\"en-ZA\"\r\n          class=\"pt-DefaultParagraphFont-000010\">. Etiam scelerisque purus lectus, vitae venenatis eros convallis non. Morbi condimentum congue tortor porta pulvinar. Fusce vitae volutpat risus, ut efficitur lacus. Suspendisse potenti. Integer nisl ipsum, finibus sed consequat nec, porta a lectus. Nam nisl neque, vehicula in lacus sit amet, consequat tincidunt odio.</span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          class=\"pt-DefaultParagraphFont-000010\">Cras euismod molestie condimentum. Fusce non est nec erat vehicula vulputate. Vivamus auctor erat eu ipsum imperdiet pharetra. Nunc non semper lacus. Nulla id tortor pulvinar, elementum quam eget, eleifend neque. Nulla facilisi. Praesent mauris augue, congue non scelerisque sed, pharetra a lectus. Vestibulum viverra laoreet porta. Pellentesque venenatis id massa in pulvinar. Praesent tincidunt eget nulla vitae mollis. Cras justo tortor, interdum nec odio condimentum, tincidunt sodales lorem. Phasellus imperdiet sem eu condimentum blandit. Donec a erat a ligula scelerisque dapibus id a nisl. Suspendisse eu vehicula mauris.</span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          class=\"pt-DefaultParagraphFont-000010\">Donec id sapien eu velit molestie condimentum. Nullam sit amet ornare velit, ac ornare ex. Etiam pretium, arcu non placerat congue, enim enim ultricies nibh, non mollis arcu nisl facilisis metus. Nunc dapibus egestas urna. Etiam id mollis purus, quis efficitur dui. Suspendisse vel placerat nisi, faucibus semper tellus. Praesent blandit erat efficitur condimentum blandit. Sed in erat ullamcorper, varius neque vel, fringilla odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam rhoncus diam id vehicula bibendum. Nam sit amet sapien at dolor vestibulum egestas.</span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          class=\"pt-DefaultParagraphFont-000010\">Aenean lobortis orci a semper eleifend. Nulla facilisi. Phasellus sit amet odio elementum, placerat urna eget, gravida nisi. Vestibulum et vestibulum nunc. Maecenas at convallis ex, a congue sem. Nullam quis eros lorem. Pellentesque velit enim, ultricies sed ante id, malesuada tempor lorem.</span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          xml:space=\"preserve\"\r\n          class=\"pt-DefaultParagraphFont-000010\">Vivamus tempor rutrum nunc in aliquet. Vivamus vitae imperdiet massa. Nulla dapibus bibendum nisl sed pretium. Vestibulum eu orci massa. Integer arcu ex, volutpat et diam sit amet, mollis fringilla nulla. </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          xml:space=\"preserve\"\r\n          class=\"pt-000005\"> </span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-NoSpacing\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          class=\"pt-DefaultParagraphFont-000008\">Heading 1</span>\r\n      </p>\r\n      <h2\r\n        dir=\"ltr\"\r\n        class=\"pt-Heading2\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          class=\"pt-DefaultParagraphFont-000009\">Heading 2</span>\r\n      </h2>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000004\">\r\n        <span\r\n          lang=\"en-ZA\"\r\n          class=\"pt-DefaultParagraphFont-000010\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>\r\n      </p>\r\n      <p\r\n        dir=\"ltr\"\r\n        class=\"pt-Normal-000011\" />\r\n    </div>\r\n  </body>\r\n</html>`;
+			//console.log(HtmlString);
+			$('#myeditor').html(HtmlString);
+
+			$('textarea#wysiwyg').html(HtmlString);
+		}
+
+		$(window).load(function () {
+
+
+			var options = {
+				controls: {
+					bold: $(".bold"),
+					italic: $(".italic"),
+					underline: $(".underline"),
+					orderedList: $(".orderedList"),
+					unOrderedList: $(".unOrderedList"),
+					justifyCenter: $(".center"),
+					justifyRight: $(".right"),
+					justifyLeft: $(".left"),
+					justifyFull: $(".full"),
+					insertHorizontalRule: $(".rule"),
+					subscript: $(".sub"),
+					superscript: $(".super"),
+					strikeThrough: $(".strike"),
+					removeFormat: $(".remove"),
+					selectAll: $(".select"),
+					indent: $(".indent"),
+					outdent: $(".outdent"),					
+					undo: $(".undo"),
+					redo: $(".redo")
+				},
+				inputControls: {
+					fontName: $("#fonty"),
+					createLink: $("#linky"),
+					fontSize: $("#sizy"),
+					fontColor: $("#colory")
+				},
+				defaults: {
+					fontFamily: "arial",
+					border: "1px solid lightgrey",
+				},
+				size: {
+					height: "350px",
+					width: "100%",
+				},
+				css: {
+					"background": "white"
+				}
+
+			};
+
+
+
+
+			var instance = $("textarea#wysiwyg").wysiwyg(options);
+			$(".demo-btn").click(function () {
+				instance.doAction("bold");
+			});
+
+			$(".html").click(function () {
+				$("body").append(instance.html());
+			});
+
+			$(".raw").click(function () {
+				$(".rawHTML").html(instance.rawHTML());
+			});
+
+			$(".code").click(function () {
+				instance.doAction("insertHTML", "<pre><code>function awesome(){};</code></pre>");
+			});
+
+		});
+
+
+	</script>
+	
+</body>
+
+</html>
